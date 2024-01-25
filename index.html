@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>henricasi.net</title>
   </head>
@@ -46,8 +46,34 @@
   i;i;;;iiiiii1i;;i1tii111GLLLLGG008800G00888888@@@88@@@@@888888888@@@@@@@@@@@@88@@88880000000LftfLL008GCLLCG0@@@@@80000GGGGGGGGGGG0,,,,,,,,,,,,..,,,.,,.,,,,,,,,,
   1iiiiiiiiii;;;itfiiiii11tt00888@8888008@@@@@@@@@@@@@@@@@888888@@@@@@@@@@@@@@@@888@@@800000000G000@@@fLLfLCC0@888888@@@880GGGGGGGG0::::::::::::::::::::::::::::;;
 </pre>
+<p></p>
 </header>
 
 </div>
   </body>
 </html>
+
+<script>
+  let portrait = document.getElementById("ascii-portrait")
+    const changeRandomCharacter = (element) => {
+      // const allc = "!@#$%^&*()_+~`|}{[]\:;?><,./-=0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      const allc = "🌻🥰🐛💐⛴️😃😅😇👽😺👍🐜🐡🦔🌿✨💫🍇🥬🥕💿📸🚪➕➖➗🇧🇷"
+      
+      let randomCharacter = allc[Math.floor(Math.random() * allc.length)]
+      // if (Math.random() > 0.03) {randomCharacter = " "}
+
+      let randomIndex = Math.floor(Math.random() * element.textContent.length)
+      
+      // if (randomIndex === element.textContent.length - 1) {return}
+      if (element.textContent[randomIndex] === '\n') {return}
+      if (element.textContent[randomIndex] === ' ') {return}
+
+      let newString = element.textContent.slice(0, randomIndex) + randomCharacter + element.textContent.slice(randomIndex + 1)
+      element.textContent = newString
+
+      console.log(randomCharacter)
+
+    }
+
+    setTimeout(() => setInterval(() => changeRandomCharacter(portrait), 100), 1000)
+</script>
